@@ -1,0 +1,23 @@
+.sideMenu .p-megamenu.p-megamenu-vertical{
+    height: 31rem;
+}
+
+
+:host {
+    ::ng-deep .p-megamenu.p-megamenu-vertical {
+        height: 31rem !important;
+    }
+
+    ::ng-deep .p-menuitem.active {
+        background-color: orange;
+      }
+}
+
+:host >>> .active {
+    background-color: #2fce07;
+}
+
+
+
+
+
