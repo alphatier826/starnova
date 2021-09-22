@@ -7,7 +7,7 @@
 
 
 .singin-wrapper{
-    padding: 2rem 11rem 2rem 19rem;
+    padding: 2rem 11rem 2rem 22rem;
 }
 
 
@@ -36,8 +36,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #f9314b;
+	background-color: #f9314b;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -86,7 +86,7 @@ input {
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
+	width: 650px;
 	max-width: 100%;
 	min-height: 480px;
 }
@@ -271,6 +271,8 @@ footer a {
   li span {
     display: block;
     font-size: 2rem;
+	color: #f9314b;
+    font-weight: bold;
   }
   
  
