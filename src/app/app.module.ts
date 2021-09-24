@@ -8,6 +8,7 @@ import { PrimeHeaderComponent } from './prime-header/prime-header.component';
 import { PrimeFooterComponent } from './prime-footer/prime-footer.component';
 import { PrimeSigninComponent } from './prime-signin/prime-signin.component';
 import { PrimeLandingComponent } from './components/prime-landing/prime-landing.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PrimeLandingComponent } from './components/prime-landing/prime-landing.
     PrimeHeaderComponent,
     PrimeFooterComponent,
     PrimeSigninComponent,
-    PrimeLandingComponent
+    PrimeLandingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

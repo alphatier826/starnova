@@ -15,6 +15,7 @@ export class PrimeLandingComponent implements OnInit {
   isAdmin:any;
 
   ngOnInit(): void {
+    this.tabMenu = "Profile";
     this.items = [
       {
           label: 'DashBoard', icon: 'pi pi-fw pi-video',

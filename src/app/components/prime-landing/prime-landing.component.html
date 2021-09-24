@@ -5,7 +5,7 @@
             <p-megaMenu *ngIf="isAdmin" [model]="agent" orientation="vertical" styleClass ="sideMenu" [ngClass]="{'active': tabMenu === items.label}" (click)="activeMenu($event)"></p-megaMenu>
         </div>
         <div class="p-col-10 p-md-10 p-lg-10">
-            
+            <app-profile *ngIf="tabMenu === 'Profile'"></app-profile>
         </div>
     </div>
 </div>
