@@ -4,7 +4,7 @@ import { PrimeSigninComponent} from './prime-signin/prime-signin.component';
 import { PrimeLandingComponent} from './components/prime-landing/prime-landing.component';
 
 const routes: Routes = [
-  {path:'signin', component:PrimeSigninComponent},
+  {path:'', component:PrimeSigninComponent, },
   {path:'landing', component:PrimeLandingComponent}
 ];
 

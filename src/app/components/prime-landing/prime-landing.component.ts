@@ -18,16 +18,16 @@ export class PrimeLandingComponent implements OnInit {
     this.tabMenu = "Profile";
     this.items = [
       {
-          label: 'DashBoard', icon: 'pi pi-fw pi-video',
+          label: 'DashBoard', icon: 'pi pi-fw pi-microsoft',
       },
       {
-          label: 'Message', icon: 'pi pi-fw pi-users',
+          label: 'Message', icon: 'pi pi-fw pi-envelope',
       },
       {
-          label: 'Profile', icon: 'pi pi-fw pi-users',
+          label: 'Profile', icon: 'pi pi-fw pi-user',
       },
       {
-          label: 'Ticket Sales', icon: 'pi pi-fw pi-calendar',
+          label: 'Ticket Sales', icon: 'pi pi-fw pi-bookmark',
           items: [
               [
                   {
@@ -46,16 +46,16 @@ export class PrimeLandingComponent implements OnInit {
 
   this.agent = [
     {
-        label: 'DashBoard', icon: 'pi pi-fw pi-video',
+        label: 'DashBoard', icon: 'pi pi-fw pi-microsoft',
     },
     {
-        label: 'Message', icon: 'pi pi-fw pi-users',
+        label: 'Message', icon: 'pi pi-fw pi-envelope',
     },
     {
-        label: 'Profile', icon: 'pi pi-fw pi-users',
+        label: 'Profile', icon: 'pi pi-fw pi-user',
     },
     {
-        label: 'Ticket Sales', icon: 'pi pi-fw pi-calendar',
+        label: 'Ticket Sales', icon: 'pi pi-fw pi-bookmark',
         items: [
             [
                 {
@@ -71,7 +71,7 @@ export class PrimeLandingComponent implements OnInit {
         ]
     },
     {
-        label: 'Management', icon: 'pi pi-fw pi-calendar',
+        label: 'Management', icon: 'pi pi-fw pi-users',
         items: [
             [
                 {
