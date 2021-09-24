@@ -10,67 +10,91 @@ export class PrimeLandingComponent implements OnInit {
 
   constructor() { }
   items:any;
+  agent: any;
   tabMenu:any;
+  isAdmin:any;
 
   ngOnInit(): void {
     this.items = [
       {
-          label: 'Videos', icon: 'pi pi-fw pi-video',
+          label: 'DashBoard', icon: 'pi pi-fw pi-video',
       },
       {
-          label: 'Users', icon: 'pi pi-fw pi-users',
+          label: 'Message', icon: 'pi pi-fw pi-users',
       },
       {
-          label: 'Events', icon: 'pi pi-fw pi-calendar',
+          label: 'Profile', icon: 'pi pi-fw pi-users',
+      },
+      {
+          label: 'Ticket Sales', icon: 'pi pi-fw pi-calendar',
           items: [
               [
                   {
-                      label: 'Event 1',
-                      items: [{label: 'Event 1.1'}, {label: 'Event 1.2'}]
+                      label: 'Tickets'
                   },
                   {
-                      label: 'Event 2',
-                      items: [{label: 'Event 2.1'}, {label: 'Event 2.2'}]
-                  }
-              ],
-              [
-                  {
-                      label: 'Event 3',
-                      items: [{label: 'Event 3.1'}, {label: 'Event 3.2'}]
+                      label: 'Sales Report'
                   },
                   {
-                      label: 'Event 4',
-                      items: [{label: 'Event 4.1'}, {label: 'Event 4.2'}]
-                  }
-              ]
-          ]
-      },
-      {
-          label: 'Settings', icon: 'pi pi-fw pi-cog',
-          items: [
-              [
-                  {
-                      label: 'Setting 1',
-                      items: [{label: 'Setting 1.1'}, {label: 'Setting 1.2'}]
-                  },
-                  {
-                      label: 'Setting 2',
-                      items: [{label: 'Setting 2.1'}, {label: 'Setting 2.2'}]
-                  },
-                  {
-                      label: 'Setting 3',
-                      items: [{label: 'Setting 3.1'}, {label: 'Setting 3.2'}]
-                  }
-              ],
-              [
-                  {
-                      label: 'Technology 4',
-                      items: [{label: 'Setting 4.1'}, {label: 'Setting 4.2'}]
+                      label: 'Credits'
                   }
               ]
           ]
       }
   ]
+
+  this.agent = [
+    {
+        label: 'DashBoard', icon: 'pi pi-fw pi-video',
+    },
+    {
+        label: 'Message', icon: 'pi pi-fw pi-users',
+    },
+    {
+        label: 'Profile', icon: 'pi pi-fw pi-users',
+    },
+    {
+        label: 'Ticket Sales', icon: 'pi pi-fw pi-calendar',
+        items: [
+            [
+                {
+                    label: 'Tickets'
+                },
+                {
+                    label: 'Sales Report'
+                },
+                {
+                    label: 'Credits'
+                }
+            ]
+        ]
+    },
+    {
+        label: 'Management', icon: 'pi pi-fw pi-calendar',
+        items: [
+            [
+                {
+                    label: 'Credits'
+                },
+                {
+                    label: 'Agent Reports'
+                },
+                {
+                    label: 'Membership'
+                }
+            ]
+        ]
+    }
+]
+
+let username = sessionStorage.getItem("username");
+if(username && username == "agent"){
+    this.isAdmin = true;
+} else if(username && username == "customer") {
+    this.isAdmin = false;
+} else {
+    this.isAdmin = false;
+}
   }
 
   menuClick(event: any){

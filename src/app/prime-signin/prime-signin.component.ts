@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-prime-signin',
@@ -8,9 +9,15 @@ import { Router } from '@angular/router';
 })
 export class PrimeSigninComponent implements OnInit {
 
-  constructor(
-    public router: Router
-  ) { }
+  public username: any;
+  public password: any;
+  myForm: FormGroup;
+  constructor(public router: Router,) {
+    this.myForm = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
+   }
 
   ngOnInit(): void {
 
@@ -19,7 +26,7 @@ export class PrimeSigninComponent implements OnInit {
         hour = minute * 60,
         day = hour * 24;
 
-  let birthday = "Sep 24, 2021 14:00:00",
+  let birthday = "Sep 26, 2021 14:00:00",
       countDown = new Date(birthday).getTime(),
       x = setInterval(function() {    
 
@@ -59,7 +66,15 @@ setInterval(function() {
   }
 
   signIn(){
-    this.router.navigateByUrl("/landing");
+    const payload = this.myForm.value;
+    let login = false;
+    if(payload.username === "agent" || payload.username === "customer"){
+      sessionStorage.setItem("username", payload.username);
+      login = true;
+    } else {
+      console.log("Invalid Username");
+    }
+    if(login) this.router.navigateByUrl("/landing");
   }
 
 }
