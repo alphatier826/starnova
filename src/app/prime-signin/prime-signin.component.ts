@@ -28,7 +28,7 @@ export class PrimeSigninComponent implements OnInit {
         hour = minute * 60,
         day = hour * 24;
 
-  let birthday = "Sep 25, 2021 20:00:00",
+  let birthday = "Sep 26, 2021 10:30:00",
       countDown = new Date(birthday).getTime(),
       x = setInterval(function() {    
 
