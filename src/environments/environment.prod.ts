@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiEngineURL: 'https://app-service-nova.herokuapp.com'
 };
