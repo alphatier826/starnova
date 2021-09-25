@@ -1,21 +1,33 @@
+@import '../../variables.scss';
 .sideMenu .p-megamenu.p-megamenu-vertical{
     height: 31rem;
 }
 
+.p-grid{
+    padding: 3rem !important;
+}
 
 :host {
     ::ng-deep .p-megamenu.p-megamenu-vertical {
         height: 31rem !important;
     }
 
-    ::ng-deep .p-menuitem.active {
-        background-color: orange;
-      }
+    ::ng-deep .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link.active{
+        background-color: #f9314b;
+    }
+    ::ng-deep .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link.active .p-menuitem-icon{
+        color: #fff;
+    }
+    ::ng-deep .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link.active .p-menuitem-text{
+        color: #fff;
+    }
+
+    ::ng-deep .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text{
+        font-family: $regular-font;
+    }
+
 }
 
-:host >>> .active {
-    background-color: #2fce07;
-}
 
 .landing-wrapper {
     padding-top: 4rem;

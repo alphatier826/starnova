@@ -1,4 +1,4 @@
-<div class="container main-container w-100 h-100">
+<div class="container main-container w-100 h-100 pl-4">
     <div class="row container-header">
         <div class="col-6 d-none">
             <label>Game Ends</label>
@@ -9,40 +9,40 @@
     </div>
     <div class="row profile-body">
         <div class="col-4">
-            <label class="">First Name</label><br>
-            <label class="">ABC</label>
+            <label class="cus-label">First Name</label><br>
+            <label class="cus-info-label">{{userProfile.firstName}}</label>
         </div>
         <div class="col-4">
-            <label class="">Last Name</label><br>
-            <label class="">ABC</label>
+            <label class="cus-label">Last Name</label><br>
+            <label class="cus-info-label">{{userProfile.lastName}}</label>
         </div>
         <div class="col-4">
-            <label class="">Email</label><br>
-            <label class="">ABC</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <label class="">Region</label><br>
-            <label class="">ABC</label>
-        </div>
-        <div class="col-4">
-            <label class="">Currency</label><br>
-            <label class="">ABC</label>
-        </div>
-        <div class="col-4">
-            <label class="">Commision/Discount Rate</label><br>
-            <label class="">ABC</label>
+            <label class="cus-label">Email</label><br>
+            <label class="cus-info-label">{{userProfile.email}}</label>
         </div>
     </div>
     <div class="row">
         <div class="col-4">
-            <label class="">Contact Number</label><br>
-            <label class="">ABC</label>
+            <label class="cus-label">Region</label><br>
+            <label class="cus-info-label">{{userProfile.region}}</label>
         </div>
         <div class="col-4">
-            <label class="">Language</label><br>
-            <label class="">ABC</label>
+            <label class="cus-label">Currency</label><br>
+            <label class="cus-info-label">{{userProfile.currency}}</label>
+        </div>
+        <div class="col-4" *ngIf="userProfile.type === 'AGENT'">
+            <label class="cus-label">Commision/Discount Rate</label><br>
+            <label class="cus-info-label">{{userProfile.commissionRate}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label class="cus-label">Contact Number</label><br>
+            <label class="cus-info-label">{{userProfile.contactNumber}} <i class="pi pi-pencil" style=" font-size: 11px; padding-left: 0.5rem;cursor: pointer; "></i></label>
+        </div>
+        <div class="col-4">
+            <label class="cus-label">Language</label><br>
+            <label class="cus-info-label">English <i class="pi pi-pencil" style=" font-size: 11px; padding-left: 0.5rem;cursor: pointer; "></i></label>
         </div>
     </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import { CommonService} from '../services/common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prime-header',
@@ -8,10 +10,12 @@ import {MenuItem} from 'primeng/api';
 })
 export class PrimeHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cs: CommonService, private router: Router) { }
   items: MenuItem[];
+  public userInfo: any;
 
   ngOnInit(): void {
+
     this.items = [
       {
         label: 'Home',
@@ -27,6 +31,17 @@ export class PrimeHeaderComponent implements OnInit {
         label: 'Results',
       }
    ];
+
+    //this.userInfo = this.cs.userInfoData;
+    this.cs.menuBreadCrumbComponentDetails.subscribe((data) =>{
+      this.userInfo = data;
+    })
+  }
+
+  logOut(){
+    this.userInfo = null;
+    sessionStorage.clear();
+    this.router.navigateByUrl("/");
   }
 
 }

@@ -6,6 +6,7 @@ import { PrimeLandingComponent} from './components/prime-landing/prime-landing.c
 const routes: Routes = [
   {path:'', component:PrimeSigninComponent, },
   {path:'landing', component:PrimeLandingComponent}
+
 ];
 
 @NgModule({

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CommonService} from '../services/common.service';
+import {  ApiUtilService} from '../services/api-util.service';
 
 @Component({
   selector: 'app-prime-signin',
@@ -12,9 +14,9 @@ export class PrimeSigninComponent implements OnInit {
   public username: any;
   public password: any;
   myForm: FormGroup;
-  constructor(public router: Router,) {
+  constructor(public router: Router, public cs: CommonService, private apiUtilService: ApiUtilService) {
     this.myForm = new FormGroup({
-      username: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
    }
@@ -26,7 +28,7 @@ export class PrimeSigninComponent implements OnInit {
         hour = minute * 60,
         day = hour * 24;
 
-  let birthday = "Sep 26, 2021 14:00:00",
+  let birthday = "Sep 25, 2021 20:00:00",
       countDown = new Date(birthday).getTime(),
       x = setInterval(function() {    
 
@@ -55,26 +57,30 @@ export class PrimeSigninComponent implements OnInit {
 
       var countdownNumberEl = document.getElementById('countdown-number');
 var countdown = 60;
-
-countdownNumberEl.textContent = countdown.toString();
-
-setInterval(function() {
-  countdown = --countdown <= 0 ? 10 : countdown;
-
-  countdownNumberEl.textContent = countdown.toString();
-}, 1000);
+if(countdownNumberEl){
+    countdownNumberEl.textContent = countdown.toString();
+    setInterval(function() {
+      countdown = --countdown <= 0 ? 10 : countdown;
+      countdownNumberEl.textContent = countdown.toString();
+    }, 1000);
+  }
   }
 
   signIn(){
     const payload = this.myForm.value;
-    let login = false;
-    if(payload.username === "agent" || payload.username === "customer"){
-      sessionStorage.setItem("username", payload.username);
-      login = true;
-    } else {
-      console.log("Invalid Username");
-    }
-    if(login) this.router.navigateByUrl("/landing");
+    this.apiUtilService.invokeAPI("/serviceEngine/users/login", "POST", payload).subscribe(
+      (res: any) => {
+        if(res.body.status === "SUCCESS"){
+          const userInfo = res.body.userDetails;
+          this.cs.userInfoData = userInfo;
+          this.cs.updateUserInfo(userInfo);
+          this.router.navigateByUrl("/landing");
+          sessionStorage.setItem("username",userInfo.type);
+        }
+      },
+      (err: any) => {
+        console.log(err);
+      });
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MegaMenuItem,MenuItem} from 'primeng/api';
-
+import { CommonService} from '../../services/common.service';
+ 
 @Component({
   selector: 'app-prime-landing',
   templateUrl: './prime-landing.component.html',
@@ -8,7 +9,7 @@ import {MegaMenuItem,MenuItem} from 'primeng/api';
 })
 export class PrimeLandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cs: CommonService) { }
   items:any;
   agent: any;
   tabMenu:any;
@@ -24,7 +25,7 @@ export class PrimeLandingComponent implements OnInit {
           label: 'Message', icon: 'pi pi-fw pi-envelope',
       },
       {
-          label: 'Profile', icon: 'pi pi-fw pi-user',
+          label: 'Profile', icon: 'pi pi-fw pi-user', styleClass : 'active',
       },
       {
           label: 'Ticket Sales', icon: 'pi pi-fw pi-bookmark',
@@ -52,7 +53,7 @@ export class PrimeLandingComponent implements OnInit {
         label: 'Message', icon: 'pi pi-fw pi-envelope',
     },
     {
-        label: 'Profile', icon: 'pi pi-fw pi-user',
+        label: 'Profile', icon: 'pi pi-fw pi-user', styleClass : 'active',
     },
     {
         label: 'Ticket Sales', icon: 'pi pi-fw pi-bookmark',
@@ -89,9 +90,9 @@ export class PrimeLandingComponent implements OnInit {
 ]
 
 let username = sessionStorage.getItem("username");
-if(username && username == "agent"){
+if(username && username == "AGENT"){
     this.isAdmin = true;
-} else if(username && username == "customer") {
+} else if(username && username == "CUSTOMER") {
     this.isAdmin = false;
 } else {
     this.isAdmin = false;
@@ -105,6 +106,8 @@ if(username && username == "agent"){
   activeMenu(event) {
     this.tabMenu = event.target.innerText;
   }
+
+  
 
   
 }

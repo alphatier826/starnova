@@ -73,7 +73,13 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="button" routerLink="signin">SignIn</button>
+            <div class="userName">
+                <span *ngIf="userInfo">Welcome {{userInfo.type}} !</span>
+                <span *ngIf="userInfo">{{userInfo.firstName}} {{userInfo.lastName}} </span>
+            </div>
+            <i *ngIf="userInfo" class="pi pi-power-off logOut" (click)="logOut()"></i>
+            <button *ngIf="!userInfo" class="btn-o" routerLink="/">SignIn</button>
+            <!-- <button class="btn btn-outline-primary my-2 my-sm-0" type="button" routerLink="signin">SignIn</button> -->
         </form>
     </div>
 </nav>
